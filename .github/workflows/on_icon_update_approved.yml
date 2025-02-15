@@ -51,6 +51,8 @@ jobs:
         run: python scripts/generate_file_tree.py svg png webp
       - name: Generate ICONS.md
         run: python scripts/generate_icons_page.py
+      - name: Generate full metadata file
+        run: python scripts/generate_metadata.py
       - name: Extract icon name
         id: extract_icon_name
         run: echo "ICON_NAME=$(python scripts/print_icon_name.py ${{ env.ICON_TYPE }} update)" >> "$GITHUB_OUTPUT"
