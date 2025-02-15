@@ -39,6 +39,7 @@ jobs:
           git config --global user.name "Dashboard Icons Bot"
           git add png/ webp/
           git commit -m "ci(github-actions): convert SVG assets to PNG and WEBP" || exit 0
+          git status
           git pull --rebase origin ${{ github.ref_name }}
           git push origin HEAD:${{ github.ref_name }}
 
