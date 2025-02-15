@@ -3,10 +3,14 @@
   "aliases": [],
   "categories": [],
   "update": {
-    "timestamp": "2023-04-13T13:56:18Z",
+    "timestamp": "2025-01-06T02:12:00Z",
     "author": {
-      "id": 71191962,
-      "name": "walkxcode"
+      "id": 1522389,
+      "name": "stuntguy3000"
     }
+  },
+  "colors": {
+    "dark": "netbox-dark",
+    "light": "netbox"
   }
 }

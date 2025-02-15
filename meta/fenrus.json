@@ -1,12 +1,16 @@
 {
-  "base": "svg",
+  "base": "png",
   "aliases": [],
   "categories": [],
   "update": {
-    "timestamp": "2024-01-29T22:23:54Z",
+    "timestamp": "2025-01-07T17:54:03Z",
     "author": {
       "id": 71191962,
       "name": "walkxcode"
     }
+  },
+  "colors": {
+    "light": "fenrus-light",
+    "dark": "fenrus"
   }
 }

@@ -1,12 +1,16 @@
 {
-  "base": "svg",
+  "base": "png",
   "aliases": [],
   "categories": [],
   "update": {
-    "timestamp": "2024-10-13T18:34:39Z",
+    "timestamp": "2025-01-07T17:54:03Z",
     "author": {
-      "id": 139158618,
-      "name": "alex-fusionauth"
+      "id": 71191962,
+      "name": "walkxcode"
     }
+  },
+  "colors": {
+    "light": "fusionauth-light",
+    "dark": "fusionauth"
   }
 }

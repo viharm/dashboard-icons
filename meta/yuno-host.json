@@ -8,5 +8,9 @@
       "id": 71191962,
       "name": "walkxcode"
     }
+  },
+  "colors": {
+    "light": "yuno-host-light",
+    "dark": "yuno-host"
   }
 }
