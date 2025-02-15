@@ -30,6 +30,8 @@ jobs:
       - name: Install Dependencies
         run: |
           pip install cairosvg pillow requests
+          sudo apt-get update
+          sudo apt-get install -y zopfli webp
       - name: Parse issue form
         id: parse_issue_form
         run: echo "ISSUE_FORM=$(python scripts/parse_issue_form.py)" >> "$GITHUB_OUTPUT"
@@ -45,11 +47,21 @@ jobs:
         run: python scripts/generate_icons.py ${{ env.ICON_TYPE }} update
         env:
           INPUT_ISSUE_FORM: ${{ steps.parse_issue_form.outputs.ISSUE_FORM }}
+      - name: Generate File Tree
+        run: python scripts/generate_file_tree.py svg png webp
+      - name: Generate ICONS.md
+        run: python scripts/generate_icons_page.py
       - name: Extract icon name
         id: extract_icon_name
         run: echo "ICON_NAME=$(python scripts/print_icon_name.py ${{ env.ICON_TYPE }} update)" >> "$GITHUB_OUTPUT"
         env:
           INPUT_ISSUE_FORM: ${{ steps.parse_issue_form.outputs.ISSUE_FORM }}
+      - name: Compress icons
+        run: |
+          echo "Compressing PNGs..."
+          find png/ -iname "${{ steps.extract_icon_name.outputs.ICON_NAME }}*.png" -print0 | xargs -0 -P 4 -I{} zopflipng -y {} {}
+          echo "Compressing WEBPs..."
+          find webp/ -iname "${{ steps.extract_icon_name.outputs.ICON_NAME }}*.webp" -print0 | xargs -0 -P 4 -I{} bash -c 'cwebp -quiet -lossless "$1" -o "$1"' _ {}
       - name: Commit changes
         run: |
           git config --global user.email "193821040+dashboard-icons-manager[bot]@users.noreply.github.com"

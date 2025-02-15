@@ -1,13 +1,6 @@
 name: Update Icons and Resources
 
 on:
-  push:
-    branches:
-      - main
-      - dev
-    paths:
-      - "svg/**"
-      - "png/**"
   workflow_dispatch:
 
 jobs:
@@ -58,9 +51,6 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: "3.9"
-
-      - name: Generate File Tree
-        run: python scripts/generate_file_tree.py svg png webp
 
       - name: Commit and Push Changes
         run: |
