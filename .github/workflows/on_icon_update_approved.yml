@@ -67,3 +67,4 @@ jobs:
           delete-branch: true
           body: |
             This PR updates the icon ${{steps.extract_icon_name.outputs.ICON_NAME}} like requested in #${{github.event.issue.number}} to the project.
+            Closes #${{github.event.issue.number}}
